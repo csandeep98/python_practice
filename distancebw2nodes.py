@@ -12,15 +12,18 @@ def findLca(root, node1, node2):
         return root
 
     if root.data == node1 or root.data == node2:
-        return root.data
+        return root
 
     left = findLca(root.left, node1, node2)
     right = findLca(root.right, node1, node2)
 
+    if left and right:
+        return root
+
     if left != 0:
         return left
 
-    if right != 0:
+    else:
         return right
 
 
@@ -30,7 +33,7 @@ def find_root_from_ancestor_node(root, data):
     if root is None:
         return -1
 
-    if root == data:
+    if root.data == data:
         return 0
 
     left = find_root_from_ancestor_node(root.left, data)
@@ -56,4 +59,4 @@ root.right.left = Node(6)
 root.right.right = Node(7)
 root.right.left.right = Node(8)
 
-find_distance_between_nodes(root, 4, 5)
+print(find_distance_between_nodes(root, 4, 5))
