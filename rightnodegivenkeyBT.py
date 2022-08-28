@@ -1,8 +1,5 @@
 # program to print the right node of a given tree in Binary tree
 
-from lib2to3.pgen2.token import RIGHTSHIFT
-
-
 class Node:
     def __init__(self, data):
         self.data = data
